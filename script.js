@@ -1,5 +1,6 @@
 const container = document.querySelector(".grid-container");
 const gridBtn = document.querySelector(".gridBtn");
+const sizeTag = document.querySelector(".size-tag");
 
 let gridSize = 16;
 
@@ -13,6 +14,8 @@ function createGrid(size) {
         div.classList.add("box")
         container.appendChild(div);
     }
+    sizeTag.textContent = `${size} X ${size}`
+
     boxes = document.querySelectorAll(".box");
 
     boxes.forEach((box) => {
@@ -32,6 +35,8 @@ gridBtn.addEventListener("click", () => {
         alert("Maximum Size 100");
     } else if (isNaN(gridSize)) {
         alert("Must be a positive number")
+    } else if (gridSize == null) {
+        return;
     }
     else {
         while (container.hasChildNodes()) {
