@@ -60,7 +60,7 @@ body {
 .side-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     border: 4px solid black;
     border-radius: 25px;
@@ -94,7 +94,13 @@ footer p{
 }
 
 
-/* SLIDER */
+/* Toggle Slider */
+
+.toggle-label {
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 7px;
+}
 
 .grid-toggle {
     position: relative;
@@ -103,7 +109,7 @@ footer p{
     height: 34px;
   }
   
-  .switch input {
+  .grid-toggle input {
     opacity: 0;
     width: 0;
     height: 0;

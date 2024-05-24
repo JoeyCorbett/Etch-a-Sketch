@@ -1,7 +1,7 @@
 const container = document.querySelector(".grid-container");
 const gridBtn = document.querySelector(".gridBtn");
 const sizeTag = document.querySelector(".size-tag");
-const toggleBtn = document.querySelector(".grid-toggle");
+const toggleSlider = document.querySelector(".grid-toggle input");
 
 let gridSize = 16;
 
@@ -47,9 +47,18 @@ gridBtn.addEventListener("click", () => {
     }
 });
 
-toggleBtn.addEventListener("click", () => {
-    if (hasStyle(box, 'outline", 1px solid black')) {
-        box.style.outline = '';
+
+
+toggleSlider.addEventListener("change", () => {
+    let firstBox = container.firstElementChild;
+    if (firstBox.style.outline === "black solid 1px") {
+        boxes.forEach((box) => {
+           box.style.outline = "";
+        });
+    } else {
+        boxes.forEach((box) => {
+            box.style.outline = "black solid 1px";
+        })
     }
 });
 
