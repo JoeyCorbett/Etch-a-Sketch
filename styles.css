@@ -71,7 +71,7 @@ body {
 }
 
 #drawTools.selected {
-  background-color: rgb(196, 196, 196);
+  background-color: rgb(175, 175, 175);
 }
 
 .size-tag {

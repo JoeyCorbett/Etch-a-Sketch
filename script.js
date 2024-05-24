@@ -3,6 +3,7 @@ const gridBtn = document.querySelector(".gridBtn");
 const sizeTag = document.querySelector(".size-tag");
 const toggleSlider = document.querySelector(".grid-toggle input");
 const penBtn = document.querySelector(".penBtn");
+const rgbBtn = document.querySelector(".rgbBtn");
 const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearGrid");
 
@@ -43,6 +44,11 @@ function addPen() {
             box.style.backgroundColor = "black";
         });
     });
+}
+
+function randomize() {
+    let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+    return randomColor;
 }
 
 let boxes = document.querySelectorAll(".box");
@@ -94,6 +100,15 @@ penBtn.addEventListener("click", () => {
     }
 });
 
+rgbBtn.addEventListener("click", () => {
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", () => {
+            let randomColor = randomize();
+            box.style.backgroundColor = "#" + randomColor;
+        });
+    });
+});
+
 eraserBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
@@ -113,8 +128,8 @@ eraserBtn.addEventListener("click", () => {
 clearBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
         box.style.backgroundColor = "White";
-    })
-})
+    });
+});
 
 
 
