@@ -30,6 +30,7 @@ body {
 
 .header {
     font-size: 45px;
+    margin-bottom: 10px;
 }
 
 .box {
@@ -83,9 +84,9 @@ body {
     border: 4px solid black;
     border-radius: 25px;
     height: 500px;
-    width: 200px;
+    width: 130px;
     margin-right: 50px;
-    margin-top: 7%;
+    margin-top: 5.5%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 

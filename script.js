@@ -32,11 +32,11 @@ createGrid(gridSize);
 
 gridBtn.addEventListener("click", () => {
     let gridSize = prompt("Enter Grid Size: ");
-    if (gridSize > 100) {
-        alert("Maximum Size 100");
+    if (gridSize > 100 || gridSize < 1) {
+        alert("Grid Size: 1-100");
     } else if (isNaN(gridSize)) {
         alert("Must be a positive number")
-    } else if (gridSize == null) {
+    } else if (gridSize === null || gridSize === "") {
         return;
     }
     else {
@@ -46,7 +46,6 @@ gridBtn.addEventListener("click", () => {
         createGrid(gridSize);
     }
 });
-
 
 
 toggleSlider.addEventListener("change", () => {
