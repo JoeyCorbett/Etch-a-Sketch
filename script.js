@@ -2,7 +2,10 @@ const container = document.querySelector(".grid-container");
 const gridBtn = document.querySelector(".gridBtn");
 const sizeTag = document.querySelector(".size-tag");
 const toggleSlider = document.querySelector(".grid-toggle input");
+const penBtn = document.querySelector(".penBtn");
+const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearGrid");
+
 let gridActive = false;
 
 let gridSize = 16;
@@ -22,11 +25,7 @@ function createGrid(size) {
 
     if (gridActive) addGrid();
 
-    boxes.forEach((box) => {
-        box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = "black";
-        });
-    });
+    addPen();
 }
 
 function addGrid() {
@@ -36,13 +35,21 @@ function addGrid() {
     gridActive = true;
 }
 
+function addPen() {
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", () => {
+            box.style.backgroundColor = "black";
+        });
+    });
+}
+
 let boxes = document.querySelectorAll(".box");
 
 createGrid(gridSize);
 
 gridBtn.addEventListener("click", () => {
     while (true) {
-        let gridSize = prompt("Enter Grid Size: ");
+        let gridSize = prompt("Enter Grid Size (1-100): ");
         if (gridSize === null || gridSize === "") {
             return;
         }
@@ -72,6 +79,18 @@ toggleSlider.addEventListener("change", () => {
     } else {
         addGrid();
     }
+});
+
+penBtn.addEventListener("click", () => {
+    addPen();
+});
+
+eraserBtn.addEventListener("click", () => {
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", () => {
+            box.style.backgroundColor = "white";
+        });
+    });
 });
 
 clearBtn.addEventListener("click", () => {
