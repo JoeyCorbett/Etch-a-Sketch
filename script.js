@@ -1,6 +1,7 @@
 const container = document.querySelector(".grid-container");
 const gridBtn = document.querySelector(".gridBtn");
 const sizeTag = document.querySelector(".size-tag");
+const toggleBtn = document.querySelector(".grid-toggle");
 
 let gridSize = 16;
 
@@ -43,6 +44,12 @@ gridBtn.addEventListener("click", () => {
             container.removeChild(container.firstChild);
         }
         createGrid(gridSize);
+    }
+});
+
+toggleBtn.addEventListener("click", () => {
+    if (hasStyle(box, 'outline", 1px solid black')) {
+        box.style.outline = '';
     }
 });
 
