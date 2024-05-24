@@ -42,13 +42,31 @@ body {
     font-size: 15px;
     border: 1px solid black;
     padding: 12px;
-    border-radius: 10px;
-    background-color: rgb(235, 235, 235);
+    margin-top: 25px;
+    border-radius: 20px;
+    background-color: rgb(230, 230, 230);
     transition: background-color 0.3s, transform 0.2s ease;
 }
 
 .gridBtn:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
+}
+
+.clearGrid {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  border: 1px solid black;
+  padding: 9px;
+  margin-top: 7px;
+  border-radius: 5px;
+  width: 79px;
+  background-color: rgb(230, 230, 230);
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.clearGrid:hover {
+  transform: scale(1.02);
 }
 
 .size-tag {
@@ -67,7 +85,7 @@ body {
     height: 500px;
     width: 200px;
     margin-right: 50px;
-    margin-top: 11%;
+    margin-top: 7%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -98,8 +116,9 @@ footer p{
 
 .toggle-label {
   font-weight: bold;
-  font-size: 17px;
-  margin-bottom: 7px;
+  font-size: 16px;
+  margin-bottom: 8px;
+  margin-top: 20px;
 }
 
 .grid-toggle {

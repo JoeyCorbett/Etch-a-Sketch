@@ -2,6 +2,7 @@ const container = document.querySelector(".grid-container");
 const gridBtn = document.querySelector(".gridBtn");
 const sizeTag = document.querySelector(".size-tag");
 const toggleSlider = document.querySelector(".grid-toggle input");
+const clearBtn = document.querySelector(".clearGrid");
 
 let gridSize = 16;
 
@@ -9,7 +10,6 @@ function createGrid(size) {
     let boxSize = 500 / size;
     for (let i = 0; i < size * size; i++) {
         let div = document.createElement("div");
-        div.style.outline = "1px solid black";
         div.style.height = `${boxSize}px`;
         div.style.width = `${boxSize}px`;
         div.classList.add("box")
@@ -61,6 +61,12 @@ toggleSlider.addEventListener("change", () => {
         })
     }
 });
+
+clearBtn.addEventListener("click", () => {
+    boxes.forEach((box) => {
+        box.style.backgroundColor = "White";
+    })
+})
 
 
 
