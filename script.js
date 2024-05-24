@@ -3,6 +3,7 @@ const gridBtn = document.querySelector(".gridBtn");
 const sizeTag = document.querySelector(".size-tag");
 const toggleSlider = document.querySelector(".grid-toggle input");
 const clearBtn = document.querySelector(".clearGrid");
+let gridActive = false;
 
 let gridSize = 16;
 
@@ -18,12 +19,21 @@ function createGrid(size) {
     sizeTag.textContent = `${size} X ${size}`
 
     boxes = document.querySelectorAll(".box");
+    
+    if (gridActive) addGrid();
 
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
             box.style.backgroundColor = "black";
         });
     });
+}
+
+function addGrid() {
+    boxes.forEach((box) => {
+        box.style.outline = "black solid 1px";
+    });
+    gridActive = true;
 }
 
 let boxes = document.querySelectorAll(".box");
@@ -53,11 +63,10 @@ toggleSlider.addEventListener("change", () => {
     if (firstBox.style.outline === "black solid 1px") {
         boxes.forEach((box) => {
            box.style.outline = "";
+           gridActive = false;
         });
     } else {
-        boxes.forEach((box) => {
-            box.style.outline = "black solid 1px";
-        })
+        addGrid();
     }
 });
 
