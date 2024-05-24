@@ -41,7 +41,7 @@ body {
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 15px;
-    border: 1px solid black;
+    border: 2px solid black;
     padding: 12px;
     margin-top: 25px;
     border-radius: 20px;
@@ -57,7 +57,7 @@ body {
   margin-bottom: 20px;
   font-weight: bold;
   font-size: 15px;
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 9px;
   margin-top: 7px;
   border-radius: 5px;
@@ -68,6 +68,10 @@ body {
 
 #drawTools:hover {
   transform: scale(1.02);
+}
+
+#drawTools.selected {
+  background-color: rgb(196, 196, 196);
 }
 
 .size-tag {

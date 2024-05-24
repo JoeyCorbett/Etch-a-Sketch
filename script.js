@@ -7,6 +7,7 @@ const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearGrid");
 
 let gridActive = false;
+let penActive = true;
 
 let gridSize = 16;
 
@@ -26,6 +27,7 @@ function createGrid(size) {
     if (gridActive) addGrid();
 
     addPen();
+    penBtn.classList.toggle("selected");
 }
 
 function addGrid() {
@@ -68,7 +70,6 @@ gridBtn.addEventListener("click", () => {
     }
 });
 
-
 toggleSlider.addEventListener("change", () => {
     let firstBox = container.firstElementChild;
     if (firstBox.style.outline === "black solid 1px") {
@@ -85,12 +86,28 @@ penBtn.addEventListener("click", () => {
     addPen();
 });
 
+penBtn.addEventListener("click", () => {
+    if (!penActive) {
+        penBtn.classList.toggle("selected");
+        eraserBtn.classList.toggle("selected");
+        penActive = true;
+    }
+});
+
 eraserBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
             box.style.backgroundColor = "white";
         });
     });
+});
+
+eraserBtn.addEventListener("click", () => {
+    if (penActive) {
+        eraserBtn.classList.toggle("selected");
+        penBtn.classList.toggle("selected");
+        penActive = false;
+    }
 });
 
 clearBtn.addEventListener("click", () => {
