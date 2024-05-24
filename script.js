@@ -19,7 +19,7 @@ function createGrid(size) {
     sizeTag.textContent = `${size} X ${size}`
 
     boxes = document.querySelectorAll(".box");
-    
+
     if (gridActive) addGrid();
 
     boxes.forEach((box) => {
@@ -41,19 +41,23 @@ let boxes = document.querySelectorAll(".box");
 createGrid(gridSize);
 
 gridBtn.addEventListener("click", () => {
-    let gridSize = prompt("Enter Grid Size: ");
-    if (gridSize > 100 || gridSize < 1) {
-        alert("Grid Size: 1-100");
-    } else if (isNaN(gridSize)) {
-        alert("Must be a positive number")
-    } else if (gridSize === null || gridSize === "") {
-        return;
-    }
-    else {
-        while (container.hasChildNodes()) {
-            container.removeChild(container.firstChild);
+    while (true) {
+        let gridSize = prompt("Enter Grid Size: ");
+        if (gridSize === null || gridSize === "") {
+            return;
         }
-        createGrid(gridSize);
+        else if (gridSize > 100 || gridSize < 1) {
+            alert("Grid Size: 1-100");
+        } else if (isNaN(gridSize)) {
+            alert("Must be a positive number")
+        }
+        else {
+            while (container.hasChildNodes()) {
+                container.removeChild(container.firstChild);
+            }
+            createGrid(gridSize);
+            return;
+        }
     }
 });
 
