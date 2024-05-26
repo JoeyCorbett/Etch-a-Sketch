@@ -8,7 +8,7 @@ const clearBtn = document.querySelector(".clearGrid");
 const drawButtons = document.querySelectorAll("#drawTools");
 const colorBtn = document.querySelector(".colorBtn")
 
-let value = "black";
+let value;
 
 let gridActive = false;
 let penActive = false;
@@ -53,7 +53,7 @@ function removeSelected() {
 function penAdd(value) {
     if (firstVisit) {
         value = "black";
-        colorBtn.style.backgroundColor = value;
+        colorBtn.style.color = value;
     } 
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
@@ -61,7 +61,6 @@ function penAdd(value) {
         });
     });
     firstVisit = false;
-    window.value = colorBtn.value;
 }
 
 let boxes = document.querySelectorAll(".box");
@@ -136,7 +135,7 @@ drawButtons.forEach((button) => {
 
 colorBtn.addEventListener("change", () => {
     removeSelected();
-    colorBtn.style.backgroundColor = colorBtn.value;
+    value = colorBtn.value;
     penAdd(colorBtn.value);
 });
 

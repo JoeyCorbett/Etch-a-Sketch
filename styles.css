@@ -47,10 +47,37 @@ body {
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
     transition: background-color 0.3s, transform 0.2s ease;
+    margin-bottom: 2px;
 }
 
 .gridBtn:hover {
     transform: scale(1.02);
+}
+
+#colorPicker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 85px;
+  height: 85px;
+  border: none;
+  cursor: pointer;
+  margin: 2px;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+#colorPicker:hover {
+  transform: scale(1.07);
+}
+
+#colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.24) 5px 4px 9px;
+}
+#colorPicker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
 }
 
 .styled {
@@ -87,7 +114,7 @@ body {
     align-items: center;
     border: 4px solid black;
     border-radius: 25px;
-    height: 492px;
+    height: 505px; /* 492 */
     width: 130px;
     margin-right: 50px;
     margin-top: 65px;
