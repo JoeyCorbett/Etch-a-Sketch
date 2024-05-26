@@ -6,9 +6,6 @@ const penBtn = document.querySelector(".penBtn");
 const rgbBtn = document.querySelector(".rgbBtn");
 const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearGrid");
-const drawButtons = document.querySelectorAll("#drawTools");
-const colorBtn = document.querySelector(".colorBtn")
-
 
 let gridActive = false;
 let rgbActive = false;
@@ -33,11 +30,21 @@ function createGrid(size) {
     removeSelected();
 }
 
+
+
 function addGrid() {
     boxes.forEach((box) => {
         box.style.outline = "black solid 1px";
     });
     gridActive = true;
+}
+
+function addPen() {
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", () => {
+            box.style.backgroundColor = "black";
+        });
+    });
 }
 
 function randomize() {
@@ -46,12 +53,18 @@ function randomize() {
 }
 
 function removeSelected() {
-    drawButtons.forEach((btn) => btn.classList.remove('selected'));
+    drawButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+            drawButtons.forEach((btn) => btn.classList.remove('selected'));
+        });
+    });
 }
 
 let boxes = document.querySelectorAll(".box");
 
 createGrid(gridSize);
+penBtn.classList.toggle("selected");
+addPen();
 
 gridBtn.addEventListener("click", () => {
     while (true) {
@@ -87,11 +100,7 @@ toggleSlider.addEventListener("change", () => {
 });
 
 penBtn.addEventListener("click", () => {
-    boxes.forEach((box) => {
-        box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = "black";
-        });
-    });
+    addPen();
 });
 
 
@@ -119,6 +128,8 @@ clearBtn.addEventListener("click", () => {
         box.style.backgroundColor = "White";
     });
 });
+
+const drawButtons = document.querySelectorAll("#drawTools");
 
 drawButtons.forEach((button) => {
     button.addEventListener("click", () => {
