@@ -11,8 +11,8 @@ const colorBtn = document.querySelector(".colorBtn")
 
 
 let gridActive = false;
-let rgbActive = false;
-let eraserActive = false;
+let penActive = false;
+let firstVisit = true;
 
 let gridSize = 16;
 
@@ -31,6 +31,8 @@ function createGrid(size) {
 
     if (gridActive) addGrid();
     removeSelected();
+    penAdd();
+    penBtn.classList.toggle("selected");
 }
 
 function addGrid() {
@@ -47,6 +49,19 @@ function randomize() {
 
 function removeSelected() {
     drawButtons.forEach((btn) => btn.classList.remove('selected'));
+}
+
+function penAdd(value) {
+    if (firstVisit) {
+        value = "black";
+        colorBtn.style.backgroundColor = value;
+    } 
+    boxes.forEach((box) => {
+        box.addEventListener("mouseenter", () => {
+            box.style.backgroundColor = value;
+        });
+    });
+    firstVisit = false;
 }
 
 let boxes = document.querySelectorAll(".box");
@@ -87,11 +102,7 @@ toggleSlider.addEventListener("change", () => {
 });
 
 penBtn.addEventListener("click", () => {
-    boxes.forEach((box) => {
-        box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = "black";
-        });
-    });
+   penAdd();
 });
 
 
@@ -125,6 +136,13 @@ drawButtons.forEach((button) => {
         drawButtons.forEach((btn) => btn.classList.remove('selected'));
         button.classList.add('selected');
     });
+});
+
+colorBtn.addEventListener("input", () => {
+    removeSelected();
+    penBtn.classList.add("selected");
+    colorBtn.style.backgroundColor = colorBtn.value;
+    penAdd(colorBtn.value);
 });
 
 
