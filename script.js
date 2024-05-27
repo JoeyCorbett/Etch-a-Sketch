@@ -1,5 +1,5 @@
 const container = document.querySelector(".grid-container");
-const gridBtn = document.querySelector(".gridBtn");
+const gridSlider = document.querySelector(".slider-grid");
 const sizeTag = document.querySelector(".size-tag");
 const toggleSlider = document.querySelector(".grid-toggle input");
 const rgbBtn = document.querySelector(".rgbBtn");
@@ -67,25 +67,16 @@ let boxes = document.querySelectorAll(".box");
 
 createGrid(gridSize);
 
-gridBtn.addEventListener("click", () => {
-    while (true) {
-        let gridSize = prompt("Enter Grid Size (1-100): ");
-        if (gridSize === null || gridSize === "") {
-            return;
-        }
-        else if (gridSize > 100 || gridSize < 1) {
-            alert("Grid Size: 1-100");
-        } else if (isNaN(gridSize)) {
-            alert("Must be a positive number")
-        }
-        else {
-            while (container.hasChildNodes()) {
-                container.removeChild(container.firstChild);
-            }
-            createGrid(gridSize);
-            return;
-        }
+gridSlider.addEventListener("input", () => {
+    let v = gridSlider.value;
+    sizeTag.textContent = `${v} X ${v}`;
+});
+
+gridSlider.addEventListener("change", () => {
+    while (container.hasChildNodes()) {
+        container.removeChild(container.firstChild);
     }
+    createGrid(gridSlider.value);
 });
 
 toggleSlider.addEventListener("change", () => {
