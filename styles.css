@@ -30,29 +30,33 @@ body {
 
 .header {
     font-size: 45px;
-    margin-bottom: 4px;
+    margin-bottom: 18px;
 }
 
 .box {
     background-color: white;
 }
 
-.gridBtn {
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: 15px;
-    border: 2px solid black;
-    padding: 12px;
-    margin-top: 25px;
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    transition: background-color 0.3s, transform 0.2s ease;
-    margin-bottom: 2px;
+.slider-grid {
+  appearance: none; 
+  width: 90%; 
+  height: 8px; 
+  background: #ffffff ; 
+  border: 2px solid black;
+  border-radius: 50px;
+  margin: 10px;
 }
 
-.gridBtn:hover {
-    transform: scale(1.02);
+.slider-grid::-webkit-slider-thumb {
+appearance: none;
+width: 24px;
+height: 24px; 
+border-radius: 50%; 
+background: #000000; 
+cursor: pointer; 
+border: 1px solid black;
 }
+
 
 #colorPicker {
   -webkit-appearance: none;
@@ -102,9 +106,9 @@ body {
 }
 
 .size-tag {
-    font-size: 23px;
+    font-size: 20px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .side-container {
@@ -114,10 +118,10 @@ body {
     align-items: center;
     border: 4px solid black;
     border-radius: 25px;
-    height: 505px; /* 492 */
-    width: 130px;
+    height: 510px; /* 492 */
+    width: 140px;
     margin-right: 50px;
-    margin-top: 65px;
+    margin-top: 43px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -139,7 +143,7 @@ footer p{
 }
 
 .fa-brands:hover {
-    transform: rotate(360deg) scale(1.2);
+    transform: rotate(360deg) scale(1.2);)
 }
 
 
@@ -157,6 +161,7 @@ footer p{
     display: inline-block;
     width: 60px;
     height: 34px;
+    margin-bottom: 15px;
   }
   
   .grid-toggle input {
