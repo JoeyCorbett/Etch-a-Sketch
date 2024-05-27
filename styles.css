@@ -38,20 +38,20 @@ body {
 }
 
 .gridBtn {
-    margin-bottom: 20px;
-    font-weight: bold;
-    font-size: 15px;
-    border: 2px solid black;
-    padding: 12px;
-    margin-top: 25px;
-    border-radius: 20px;
-    background-color: rgb(255, 255, 255);
-    transition: background-color 0.3s, transform 0.2s ease;
-    margin-bottom: 2px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 15px;
+  border: 2px solid black;
+  padding: 12px;
+  margin-top: 25px;
+  border-radius: 20px;
+  background-color: rgb(255, 255, 255);
+  transition: background-color 0.3s, transform 0.2s ease;
+  margin-bottom: 2px;
 }
 
 .gridBtn:hover {
-    transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 #colorPicker {
@@ -67,7 +67,7 @@ body {
 }
 
 #colorPicker:hover {
-  transform: scale(1.07);
+  transform: scale(1.08);
 }
 
 #colorPicker::-webkit-color-swatch {
@@ -94,7 +94,7 @@ body {
 }
 
 .styled:hover {
-  transform: scale(1.02);
+  transform: scale(1.05);
 }
 
 .styled.selected {
@@ -114,7 +114,7 @@ body {
     align-items: center;
     border: 4px solid black;
     border-radius: 25px;
-    height: 505px; /* 492 */
+    height: 506px; /* 492 */
     width: 130px;
     margin-right: 50px;
     margin-top: 65px;
@@ -210,6 +210,5 @@ footer p{
   .slider.round:before {
     border-radius: 50%;
   }
-
 
 
