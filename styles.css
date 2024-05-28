@@ -44,7 +44,7 @@ body {
   background: #ffffff ; 
   border: 2px solid black;
   border-radius: 50px;
-  margin: 10px;
+  margin: 8px;
 }
 
 .slider-grid::-webkit-slider-thumb {
@@ -62,11 +62,12 @@ border: 1px solid black;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  width: 85px;
-  height: 85px;
+  min-width: 85px;
+  min-height: 85px;
   border: none;
   cursor: pointer;
-  margin: 2px;
+  margin-bottom: 8px;
+  margin-top: 8px;
   transition: background-color 0.3s, transform 0.2s ease;
 }
 
@@ -118,7 +119,7 @@ border: 1px solid black;
     align-items: center;
     border: 4px solid black;
     border-radius: 25px;
-    height: 503px;
+    height: 525px;
     width: 130px;
     margin-right: 50px;
     margin-top: 43px;

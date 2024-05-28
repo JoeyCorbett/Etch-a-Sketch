@@ -12,9 +12,11 @@ let value;
 
 let gridActive = false;
 let penActive = false;
-let firstVisit = true;
+let isDrawing = false;
 
 let gridSize = 16;
+
+const tempContainer = document.createDocumentFragment();
 
 function createGrid(size) {
     let boxSize = 500 / size;
@@ -23,8 +25,10 @@ function createGrid(size) {
         div.style.height = `${boxSize}px`;
         div.style.width = `${boxSize}px`;
         div.classList.add("box")
-        container.appendChild(div);
+        tempContainer.appendChild(div);
     }
+    container.appendChild(tempContainer);
+    
     sizeTag.textContent = `${size} X ${size}`
 
     boxes = document.querySelectorAll(".box");
@@ -50,22 +54,37 @@ function removeSelected() {
     drawButtons.forEach((btn) => btn.classList.remove('selected'));
 }
 
+container.addEventListener("mousedown", (event) => {
+    if (event.button === 0) {
+        isDrawing = true;
+        event.preventDefault();
+    }
+});
+
+container.addEventListener("mouseup", () => {
+    isDrawing = false;
+});
+
+
 function penAdd(value) {
-    if (firstVisit) {
+    if (value == undefined) {
         value = "black";
         colorBtn.style.color = value;
     } 
+    
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = value;
+            if (isDrawing) {
+                box.style.backgroundColor = value;
+            }
         });
     });
-    firstVisit = false;
 }
 
 let boxes = document.querySelectorAll(".box");
 
 createGrid(gridSize);
+
 
 gridSlider.addEventListener("input", () => {
     let v = gridSlider.value;
@@ -73,9 +92,7 @@ gridSlider.addEventListener("input", () => {
 });
 
 gridSlider.addEventListener("change", () => {
-    while (container.hasChildNodes()) {
-        container.removeChild(container.firstChild);
-    }
+    container.innerHTML = '';
     createGrid(gridSlider.value);
 });
 
@@ -95,8 +112,10 @@ toggleSlider.addEventListener("change", () => {
 rgbBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
-            let randomColor = randomize();
-            box.style.backgroundColor = "#" + randomColor;
+            if (isDrawing) {
+                let randomColor = randomize();
+                box.style.backgroundColor = "#" + randomColor;
+            }
         });
     });
 });
@@ -105,11 +124,12 @@ rgbBtn.addEventListener("click", () => {
 eraserBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
-            box.style.backgroundColor = "white";
+            if (isDrawing) {
+                box.style.backgroundColor = "white";
+            }
         });
     });
 });
-
 
 clearBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
