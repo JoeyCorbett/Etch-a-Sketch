@@ -2,6 +2,7 @@ const container = document.querySelector(".grid-container");
 const gridSlider = document.querySelector(".slider-grid");
 const sizeTag = document.querySelector(".size-tag");
 const toggleSlider = document.querySelector(".grid-toggle input");
+const penBtn = document.querySelector(".penBtn");
 const rgbBtn = document.querySelector(".rgbBtn");
 const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearGrid");
@@ -70,11 +71,12 @@ function penAdd(value) {
     if (value == undefined) {
         value = "black";
         colorBtn.style.color = value;
-    } 
-    
+    }
+    penBtn.classList.toggle("selected");
     boxes.forEach((box) => {
         box.addEventListener("mouseenter", () => {
             if (isDrawing) {
+                box.style.opacity = "1";
                 box.style.backgroundColor = value;
             }
         });
@@ -106,6 +108,10 @@ toggleSlider.addEventListener("change", () => {
     } else {
         addGrid();
     }
+});
+
+penBtn.addEventListener("click", () => {
+    penAdd(value);
 });
 
 
