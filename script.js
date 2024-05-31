@@ -117,7 +117,7 @@ penBtn.addEventListener("click", () => {
 
 rgbBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
-        box.addEventListener("mouseenter", () => {
+        box.addEventListener("mousemove", () => {
             if (isDrawing) {
                 let randomColor = randomize();
                 box.style.backgroundColor = "#" + randomColor;
@@ -129,7 +129,7 @@ rgbBtn.addEventListener("click", () => {
 
 eraserBtn.addEventListener("click", () => {
     boxes.forEach((box) => {
-        box.addEventListener("mouseenter", () => {
+        box.addEventListener("mousemove", () => {
             if (isDrawing) {
                 box.style.backgroundColor = "white";
             }
