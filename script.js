@@ -8,7 +8,6 @@ const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearGrid");
 const drawButtons = document.querySelectorAll("#drawTools");
 const colorBtn = document.querySelector(".colorBtn")
-const body = document.querySelector("body");
 
 let value;
 
@@ -56,14 +55,14 @@ function removeSelected() {
     drawButtons.forEach((btn) => btn.classList.remove('selected'));
 }
 
-body.addEventListener("mousedown", (event) => {
+container.addEventListener("mousedown", (event) => {
     if (event.button === 0) {
         isDrawing = true;
         event.preventDefault();
     }
 });
 
-body.addEventListener("mouseup", () => {
+container.addEventListener("mouseup", () => {
     isDrawing = false;
 });
 
